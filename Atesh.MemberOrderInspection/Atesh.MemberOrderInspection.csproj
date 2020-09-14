@@ -12,7 +12,7 @@
     <IsPackable>True</IsPackable>
     <DefineConstants>$(DefineConstants);RESHARPER</DefineConstants>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <Version>0</Version>
+    <Version>6</Version>
     <Authors>Onur "Xtro" Er</Authors>
     <Company>Atesh Entertainment Inc.</Company>
     <Product>MemberOrderInspection</Product>

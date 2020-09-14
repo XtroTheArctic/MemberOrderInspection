@@ -1,10 +1,8 @@
-using System.Linq;
 using Atesh.MemberOrderInspection;
 using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
-using JetBrains.ReSharper.Psi.Tree;
 
 [assembly: RegisterConfigurableSeverity(Highlighting.SeverityId, null, HighlightingGroupIds.CodeStyleIssues, Highlighting.Description, Highlighting.Description, Severity.ERROR)]
 
@@ -28,9 +26,9 @@ namespace Atesh.MemberOrderInspection
             {
                 switch (Declaration)
                 {
-                case IConstructorDeclaration _:
-                case IDestructorDeclaration _: return Declaration.Children().First(X => X is IIdentifier).GetHighlightingRange();
-                case IIndexerDeclaration _: return Declaration.Children().First(X => X is ITokenNode && X.GetText() == "this").GetHighlightingRange();
+                case IConstructorDeclaration ConstructorDeclaration: return ConstructorDeclaration.TypeName.GetHighlightingRange();
+                case IDestructorDeclaration DestructorDeclaration: return DestructorDeclaration.TypeName.GetHighlightingRange();
+                case IIndexerDeclaration IndexerDeclaration: return IndexerDeclaration.ThisKeyword.GetHighlightingRange();
                 default: return DocumentRange.InvalidRange;
                 }
             }
@@ -39,7 +37,7 @@ namespace Atesh.MemberOrderInspection
         }
 
         internal const string SeverityId = nameof(Highlighting);
-        internal const string Message = "Declaration order of '{0}' is incorrect.";
         internal const string Description = "Declaration order is incorrect.";
+        const string Message = "Declaration order of '{0}' is incorrect.";
     }
 }
