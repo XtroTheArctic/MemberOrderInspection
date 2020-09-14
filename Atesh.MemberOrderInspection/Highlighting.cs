@@ -6,15 +6,15 @@ using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 
-[assembly: RegisterConfigurableSeverity(Highlighting.SeverityId, null, HighlightingGroupIds.CodeStyleIssues, Highlighting.Message, Highlighting.Description, Severity.ERROR)]
+[assembly: RegisterConfigurableSeverity(Highlighting.SeverityId, null, HighlightingGroupIds.CodeStyleIssues, Highlighting.Description, Highlighting.Description, Severity.ERROR)]
 
 namespace Atesh.MemberOrderInspection
 {
     [ConfigurableSeverityHighlighting(SeverityId, CSharpLanguage.Name, OverlapResolve = OverlapResolveKind.ERROR, OverloadResolvePriority = 0, ToolTipFormatString = Message)]
     public class Highlighting : IHighlighting
     {
-        public string ToolTip => Message;
-        public string ErrorStripeToolTip => string.Format(Message, Declaration.DeclaredName);
+        public string ToolTip => string.Format(Message, Declaration.DeclaredName);
+        public string ErrorStripeToolTip => ToolTip;
 
         readonly ICSharpDeclaration Declaration;
 
