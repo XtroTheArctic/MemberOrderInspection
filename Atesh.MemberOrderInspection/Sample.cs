@@ -17,6 +17,8 @@ using System;
 
 class Sample
 {
+    //static int Bbbbb;
+
     public bool PB => true;
     internal bool IB => true;
     protected internal bool PiB => true;

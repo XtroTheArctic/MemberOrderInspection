@@ -12,7 +12,7 @@
     <IsPackable>True</IsPackable>
     <DefineConstants>$(DefineConstants);RESHARPER</DefineConstants>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <Version>0</Version>
+    <Version>4</Version>
     <Authors>Onur "Xtro" Er</Authors>
     <Company>Atesh Entertainment Inc.</Company>
     <Product>MemberOrderInspection</Product>
@@ -23,6 +23,7 @@
     <PackageTags>Resharper, Plugin, Code, Inspection, Member, Order</PackageTags>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://bitbucket.org/XtroTheArctic/memberorderinspection</PackageProjectUrl>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -31,9 +32,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="JetBrains.ReSharper.SDK" Version="$(SdkVersion)" PrivateAssets="all" />
     <!-- TODO: https://github.com/NuGet/Home/issues/7154 -->
     <PackageReference Include="Wave" Version="[$(WaveVersion)]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\net461\Atesh.MemberOrderInspection.dll" PackagePath="dotFiles" Pack="true" />
   </ItemGroup>
 
   <!-- WARNING: ReSharper plugins with icons must be compiled using PowerShell scripts -->
