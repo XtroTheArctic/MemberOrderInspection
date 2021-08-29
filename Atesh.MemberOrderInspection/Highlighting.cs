@@ -1,13 +1,11 @@
-using Atesh.MemberOrderInspection;
 using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 
-[assembly: RegisterConfigurableSeverity(Highlighting.SeverityId, null, HighlightingGroupIds.CodeStyleIssues, Highlighting.Description, Highlighting.Description, Severity.ERROR)]
-
 namespace Atesh.MemberOrderInspection
 {
+    [RegisterConfigurableSeverity(SeverityId, null, HighlightingGroupIds.CodeStyleIssues, Description, Description, Severity.ERROR)]
     [ConfigurableSeverityHighlighting(SeverityId, CSharpLanguage.Name, OverlapResolve = OverlapResolveKind.ERROR, OverloadResolvePriority = 0, ToolTipFormatString = Message)]
     public class Highlighting : IHighlighting
     {

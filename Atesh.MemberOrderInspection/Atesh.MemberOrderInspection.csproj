@@ -8,11 +8,11 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
     <IsPackable>True</IsPackable>
     <DefineConstants>$(DefineConstants);RESHARPER</DefineConstants>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <Version>6</Version>
+    <Version>1</Version>
     <Authors>Onur "Xtro" Er</Authors>
     <Company>Atesh Entertainment Inc.</Company>
     <Product>MemberOrderInspection</Product>
@@ -38,13 +38,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.ReSharper.SDK" Version="$(SdkVersion)" PrivateAssets="all" />
-    <!-- TODO: https://github.com/NuGet/Home/issues/7154 -->
+    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2021.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Wave" Version="[$(WaveVersion)]" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\net461\Atesh.MemberOrderInspection.dll" PackagePath="dotFiles" Pack="true" />
+    <Content Include="bin\net471\Atesh.MemberOrderInspection.dll" PackagePath="dotFiles" Pack="true" />
   </ItemGroup>
 
   <!-- WARNING: ReSharper plugins with icons must be compiled using PowerShell scripts -->
