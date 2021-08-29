@@ -70,8 +70,7 @@ namespace Atesh.MemberOrderInspection
                 }
 
                 Child = ChildStack.TryPop()?.NextSibling;
-            }
-            while (Child != null);
+            } while (Child != null);
         }
 
         public void ProcessAfterInterior(ITreeNode Element)
