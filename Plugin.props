@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <SdkVersion>2021.2.1</SdkVersion>
+    <SdkVersion>2021.3.3</SdkVersion>
 
     <Title>MemberOrderInspection</Title>
     <Description>MemberOrderInspection is a Resharper extension which inspects C# files against incorrect ordering of member declarations.</Description>
