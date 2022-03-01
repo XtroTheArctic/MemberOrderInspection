@@ -20,22 +20,19 @@ namespace Atesh.MemberOrderInspection
 
         public DocumentRange CalculateRange()
         {
-            if (Declaration.NameIdentifier == null)
-            {
-                switch (Declaration)
-                {
-                case IConstructorDeclaration ConstructorDeclaration: return ConstructorDeclaration.TypeName.GetHighlightingRange();
-                case IDestructorDeclaration DestructorDeclaration: return DestructorDeclaration.TypeName.GetHighlightingRange();
-                case IIndexerDeclaration IndexerDeclaration: return IndexerDeclaration.ThisKeyword.GetHighlightingRange();
-                default: return DocumentRange.InvalidRange;
-                }
-            }
+            if (Declaration.NameIdentifier != null) return Declaration.NameIdentifier.GetHighlightingRange();
 
-            return Declaration.NameIdentifier.GetHighlightingRange();
+            switch (Declaration)
+            {
+            case IConstructorDeclaration ConstructorDeclaration: return ConstructorDeclaration.TypeName.GetHighlightingRange();
+            case IDestructorDeclaration DestructorDeclaration: return DestructorDeclaration.TypeName.GetHighlightingRange();
+            case IIndexerDeclaration IndexerDeclaration: return IndexerDeclaration.ThisKeyword.GetHighlightingRange();
+            default: return DocumentRange.InvalidRange;
+            }
         }
 
-        internal const string SeverityId = nameof(Highlighting);
-        internal const string Description = "Declaration order is incorrect.";
+        const string SeverityId = nameof(Highlighting);
+        const string Description = "Declaration order is incorrect.";
         const string Message = "Declaration order of '{0}' is incorrect.";
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Atesh.MemberOrderInspection
+﻿// ReSharper disable UnusedMember.Global
+
+namespace Atesh.MemberOrderInspection
 {
     enum MemberOrder
     {
