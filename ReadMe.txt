@@ -20,3 +20,9 @@ Source: E:\Alem\Program\Yazýlým\ReSharper\MemberOrderInspection\Atesh.MemberOrde
 3. "Pack" this project by right clicking on the project in Visual Studio.
 
 3.a. If the package version isn't increased manually, Resharper won't recognize the package as updateable so the plugin needs to be uninstalled and re-installed.
+
+Extra info: 
+
+* "Wave (221.0.0)" library in Dependencies/Packages section of the project is required. After I updated Resharper SDK from 2021.3.3 to 2022.1.1, there was an error message like "it can't be found".
+  Because of that error, I thought that Wave package was depriciated by Jetbrains and I deleted that dependency manually. This caused the problem of Resharper not being able to detect the packed plugin in extension manager window.
+  After reverting the line deletion in Atesh.MemberOrderInspection.csproj file, it started to work fine again.
