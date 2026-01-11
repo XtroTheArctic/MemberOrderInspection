@@ -7,7 +7,7 @@ Source: E:\Alem\Program\Yazýlým\ReSharper\MemberOrderInspection\Atesh.MemberOrde
 
 2. Build this project.
 
-2.a. Make sure that bin\net471\Atesh.MemberOrderInspection.dll is included in this project. Otherwise "Pack" command won't include the compiled dll into the package for an unknown reason.
+2.a. Make sure that bin\net472\Atesh.MemberOrderInspection.dll is included in this project. Otherwise "Pack" command won't include the compiled dll into the package for an unknown reason.
 
 2.b. Including the dll into this project must be done manually in the csproj text file.
 
